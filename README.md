@@ -12,9 +12,9 @@ Rules:
 9. Spawned Human Object will have the combined immunity of its Parents when born
 10. 
 
-Starting Condition:
+Starting Condition: The simulation will start with 10 Humans, age 0 and immunity of 0(5 male and 5 female) and 1 Virus object randomly placed in the grid. Each round of the program will symbolize a year passed.
 Stopping Condition: The grid, 10x10, is filled up for 1000 years has passed
-Overwritten Operators: Operator(=)- if two objects come into contact and meet the criteria then another Human object will be spawned. 
-Human Object Attributes: Age, marriage, health, 
-Virus Object Attributes:
+Overwritten Operators: Operator(+)- if two objects come into contact and meet the criteria then another Human object will be spawned. Op
+Human Object Attributes: int Age, bool marriage, double health, int x, int y, double immunity, string gender  
+Virus Object Attributes: int x(within bounds), int y(within bounds)
 Description:
