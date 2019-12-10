@@ -8,11 +8,13 @@ Rules:
 5. If a human object comes into contact with a Virus object then if their immunity value is less than 0.25 then they will disappear from the grid
 6. If randomly generated move from any Human is illegal(not in bounds) then no move is made
 7. When the Human object reaches a certain age, their health decreases 
-8. Immunity of the Human object can increase after every year by 0.10
+8. Immunity of the Human object can increase after every year by 0.1 after the age of 20 and then goes up by 0.2 and consectively each year
 9. Spawned Human Object will have the combined immunity of its Parents when born
 10. 
 
 Starting Condition:
 Stopping Condition: The grid, 10x10, is filled up for 1000 years has passed
 Overwritten Operators: Operator(=)- if two objects come into contact and meet the criteria then another Human object will be spawned. 
+Human Object Attributes: 
+Virus Object Attributes:
 Description:
