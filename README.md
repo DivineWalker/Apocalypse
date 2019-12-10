@@ -15,6 +15,6 @@ Rules:
 Starting Condition:
 Stopping Condition: The grid, 10x10, is filled up for 1000 years has passed
 Overwritten Operators: Operator(=)- if two objects come into contact and meet the criteria then another Human object will be spawned. 
-Human Object Attributes: 
+Human Object Attributes: Age, marriage, health, 
 Virus Object Attributes:
 Description:
