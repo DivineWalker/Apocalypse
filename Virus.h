@@ -6,10 +6,10 @@ Class Virus
 {
   
   public: 
-  
+    
   
   private: 
   
-  int x, int y
+   int x, int y
     
 };
