@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespacestd 
+
 Class Virus
 {
   
