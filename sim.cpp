@@ -146,5 +146,18 @@ void sim::ClearGrid(){
 	}
 }
 bool sim::operator+(Human h1){
+	Human createHuman;
 	if(h1.canHaveChildren())
+	{
+	   for(int i = 0; i < 10; i++)//loop through the grid
+	   {
+		for(int j = 0; j < 10; i++)
+		{
+		   if(grid[i][j] = "-")//if we find an empty spot, then place a human
+		    {
+			createHuman.PlaceHumans();
+		   }
+		}
+	   }	   
+	}
 }
