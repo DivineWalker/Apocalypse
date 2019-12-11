@@ -11,7 +11,7 @@ class Virus{
     void getVirus();
     void setX(int);
     int getY;
-    void SetY(int);
+    void setY(int);
   
   protected: 
   int x, y;
