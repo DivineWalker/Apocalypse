@@ -2,19 +2,19 @@
 
 using namespace std;
 
-Class Virus
-{
+class Virus{
   
   public: 
-    Virus();
-    void getVirus();
+    
+     Virus();
     int setX;
+    void getVirus();
     void setX(int);
     int getY;
     void SetY(int);
   
-  private: 
-  int x, int y
+  protected: 
+  int x, y;
   void Position();  
     
 };
