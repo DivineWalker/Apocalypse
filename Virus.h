@@ -6,7 +6,9 @@ Class Virus
 {
   
   public: 
-    
+    Virus();
+    void getVirus();
+    int set
   
   private: 
   
