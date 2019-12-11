@@ -1,6 +1,6 @@
 #include <iostream>
 
-using namespace std 
+using namespace std;
 
 Class Virus
 {
@@ -8,10 +8,13 @@ Class Virus
   public: 
     Virus();
     void getVirus();
-    int set
+    int setX;
+    void setX(int);
+    int getY;
+    void SetY(int);
   
   private: 
-  
-   int x, int y
+  int x, int y
+  void Position();  
     
 };
