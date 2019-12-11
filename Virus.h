@@ -7,7 +7,7 @@ class Virus{
   public: 
     
      Virus();
-    int setX;
+    int getX;
     void getVirus();
     void setX(int);
     int getY;
