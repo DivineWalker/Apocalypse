@@ -1,4 +1,3 @@
-//#include "World.h"
 #include <iostream>
 
 using namespace std;
@@ -10,28 +9,30 @@ public:
 	//void Position();
 	int getX();
 	int getY();
-	void setX(int);
-	void setY(int);
-	void Attributes();
-	void setGender(string);
+	void Attributes(); //FOR TESTING PURPOSES
+	
 	string getGender();
 	double getImmunity();
-	void operator+(Human);
+	Human operator+(Human&);
+	bool operator==(Human&);
 	//void PrintGrid();
-
+	bool CanHaveChildren();
+	void AgeUp();
+	void Move();
+	void setGender(string);
 
 protected:
+	
 	void initialPosition();
-	bool CanHaveChildren();
 	void randomizeGender();
-	string gender;
-	int x,y;
+	
 
 private:
 	int age;
 	bool married;
-	//String gender;
-	
+	string gender;
+	int x;
+	int y;
 	double health;
 	double immunity;
 };

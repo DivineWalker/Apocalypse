@@ -18,4 +18,5 @@ public:
 		void PlaceHumans();
 		void SpawnHuman(Human, Human);
 		void ClearGrid();
+		void AgeUpHumans();
 };
