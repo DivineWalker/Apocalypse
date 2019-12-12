@@ -11,6 +11,7 @@ public:
 		int day; 
 		char grid[10][10];
 		vector<Human> humans;
+		vector<Virus> Virus;
 		void initGrid();
 		bool checkBounds(int, int);
 		void firstHumans();
