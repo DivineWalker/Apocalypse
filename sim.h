@@ -1,5 +1,6 @@
 #include "Human.h"
 #include "World.h"
+#include "Virus.h"
 
 class sim{
 public:
