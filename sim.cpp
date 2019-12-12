@@ -1,6 +1,7 @@
 #include <vector>
 #include "sim.h"
 #include "World.h"
+#include "Virus.h"
 
 sim::sim(){
 	ClearGrid();
