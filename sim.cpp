@@ -120,3 +120,38 @@ void sim::AgeUpHumans(){
 	for(int j = 0; j < humans.size();j++)
 		humans[j].AgeUp();
 }
+
+void sim:NewVirus(){
+	int year;
+	for(year = 10; year <= 1000; year+=10)//every 10 years a virus should be placed in a random spot on the grid
+	{
+		Virus v1;
+		Virus.push_back(v1);
+	}
+	
+void sim::PlaceVirus(){
+	for(int i = 0; i <= 1;i++){
+		grid[virus[i].getY()][virus[i].getX()] = 'V';
+	}	
+	
+void sim::Disappear(){
+	
+	for(int i = 0; i < 10; i++)
+	{
+		for(int j = 0; j < 10; j++)
+		{
+			if(virus[i] == human[i] && human[i].immunity = < 0.25)//if a zombie hits a virus and the human immunity is less than 0.25
+			{
+				//the human is to disappear
+			}
+			else{
+				
+				rand() % 1 - human.getImmunity();//random number is generated< btwm 0 and 1, and subtracted from human immunity
+			}
+		}
+	}
+			
+				
+
+)
+		
