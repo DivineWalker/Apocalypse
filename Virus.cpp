@@ -2,8 +2,8 @@
 
 Virus::Virus()
 {
-  //int x = 0;
-  //int y = 0;
+   x = rand()%10;
+   y = rand()%10;
 }
 
 Virus::Position()
