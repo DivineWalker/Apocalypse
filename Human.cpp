@@ -32,6 +32,9 @@ void Human::randomizeGender(){
 string Human::getGender(){
 	return gender;
 }
+int Human::getHealth(){
+	return health;
+}
 int Human::getX(){
 	return x;
 }

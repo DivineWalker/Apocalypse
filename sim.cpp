@@ -6,17 +6,15 @@ sim::sim(){
 	ClearGrid();
 	PlaceHumans();
 	char b;
+	cout<<"There are "<<humans.size()<<" healthy Humans and One Deadly Virus."<<endl;
 	cout <<"Are you ready?"<<endl;
 	cin >> b;
 	day = 0;
 	while(b == 'y'){
 		cout<<"Year : "<<day<<endl;
-		PrintGrid();
+		cout <<"Humans Alive: "<<humans.size()<<endl;
 		
-		cout <<"FRONT: "<<endl;
-		humans.front().Attributes();
-		cout<<"BACK: "<<endl;
-		humans.back().Attributes();
+		PrintGrid();
 		ClearGrid();
 		AgeUpHumans();
 		MoveHumans();
@@ -28,7 +26,7 @@ sim::sim(){
 			exit(0);
 		}
 		day++;
-		cout <<"Humans Alive: "<<humans.size()<<endl;
+		
 		cout <<"Humans Contaminated: "<<endl;
 		cout <<"Would you like to continue? (y/n)"<<endl;
 		cin >> b;
@@ -55,11 +53,6 @@ void sim::UpdateGrid(){
 	for(int i = 0; i < humans.size();i++){
 		if(checkBounds(humans[i].getX(), humans[i].getY()))
 			grid[humans[i].getY()][humans[i].getX()] = 'H';
-		for(int j = 0; j < 10; j++){
-			if(grid[i][j]!= 'H')
-				grid[i][j] == '*';
-		}
-
 	}
 }
 void sim::initGrid(){
@@ -89,11 +82,8 @@ void sim::PlaceHumans(){
 }
 void sim::MoveHumans(){
 	for(int i = 0; i < humans.size();i++){
-
-		humans[i].Move();		
-		if(!checkBounds(humans[i].getX(), humans[i].getY()))
-			humans.erase(humans.begin()+i);
-
+		if(checkBounds(humans[i].getX(), humans[i].getY()))
+			humans[i].Move();
 		for(int j = 0; j < humans.size();j++){
 			if(j != i)
 				if(humans[i] == humans[j])
@@ -116,6 +106,9 @@ void sim::ClearGrid(){
 	}
 }
 void sim::AgeUpHumans(){
-	for(int j = 0; j < humans.size();j++)
+	for(int j = 0; j < humans.size();j++){
 		humans[j].AgeUp();
+		if(humans[j].getHealth() <= 0)
+			humans.erase(humans.begin()+j);
+	}
 }

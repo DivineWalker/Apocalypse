@@ -10,12 +10,11 @@ public:
 	int getX();
 	int getY();
 	void Attributes(); //FOR TESTING PURPOSES
-	
+	int getHealth();
 	string getGender();
 	double getImmunity();
 	Human operator+(Human&);
 	bool operator==(Human&);
-	//void PrintGrid();
 	bool CanHaveChildren();
 	void AgeUp();
 	void Move();
