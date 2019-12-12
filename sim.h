@@ -12,7 +12,7 @@ public:
 		int day; 
 		char grid[10][10];
 		vector<Human> humans;
-		vector<Virus> Virus;
+		vector<Virus> virus;
 		void initGrid();
 		bool checkBounds(int, int);
 		void firstHumans();
