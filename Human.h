@@ -10,19 +10,18 @@ public:
 	int getX();
 	int getY();
 	void Attributes(); //FOR TESTING PURPOSES
-	
+	int getHealth();
 	string getGender();
 	double getImmunity();
 	Human operator+(Human&);
 	bool operator==(Human&);
-	//void PrintGrid();
 	bool CanHaveChildren();
 	void AgeUp();
 	void Move();
 	void setGender(string);
-
+	void Attacked();
+	bool isInfected();
 protected:
-	
 	void initialPosition();
 	void randomizeGender();
 	
@@ -35,4 +34,5 @@ private:
 	int y;
 	double health;
 	double immunity;
+	bool infected;
 };
