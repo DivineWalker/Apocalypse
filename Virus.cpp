@@ -1,15 +1,10 @@
+#include <cstdlib>
 #include "Virus.h"
 
 Virus::Virus()
 {
    x = rand()%10;
    y = rand()%10;
-}
-
-Virus::Position()
-{
-  x = rand()% 10;
-  y = rand()% 10;
 }
 
 int Virus::getX()
@@ -22,16 +17,16 @@ int Virus::getY()
   return y;
 }
 
-void Virus::setX(int X_){
-  if(X_ > 0 && X_ < 10)
+void Virus::setX(int _X){
+  if(_X> 0 && _X < 10)
   {
-    x = X_;
+    x = _X;
+    }
 }
   
- void Virus::setY(int Y_){
-  if(Y_ > 0 && Y_ < 10)
+ void Virus::setY(int _Y){
+  if(_Y > 0 && _Y < 10)
   {
-    Y = Y_;
+    y = _Y;
+    }
 }
-
-
