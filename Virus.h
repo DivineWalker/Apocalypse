@@ -7,14 +7,14 @@ class Virus{
   public: 
     
      Virus();
-    int getX;
-    void getVirus();
+    int getX();
+    //void getVirus();
     void setX(int);
-    int getY;
+    int getY();
     void setY(int);
   
   protected: 
   int x, y;
-  void Position();  
+   
     
 };
