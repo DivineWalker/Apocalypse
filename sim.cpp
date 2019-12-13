@@ -13,7 +13,8 @@ sim::sim(){
 	while(b == 'y'){
 		cout<<"Year : "<<day<<endl;
 		cout <<"Humans Alive: "<<humans.size()<<endl;
-		
+		if( day%10 = 0)
+			newVirus();
 		PrintGrid();
 		ClearGrid();
 		AgeUpHumans();
@@ -25,7 +26,7 @@ sim::sim(){
 			cout<<"Run."<<endl;
 			exit(0);
 		}
-		day++;
+		day+=10;
 		
 		cout <<"Humans Contaminated: "<<endl;
 		cout <<"Would you like to continue? (y/n)"<<endl;
@@ -51,8 +52,13 @@ void sim::PrintGrid(){
 void sim::UpdateGrid(){
 	//ClearGrid();
 	for(int i = 0; i < humans.size();i++){
-		if(checkBounds(humans[i].getX(), humans[i].getY()))
+		if(checkBounds(humans[i].getX(), humans[i].getY())){
+			if(humans[i].isInfected){
+				grid[humans[i].getY()][humans[i].getX()] = '!';
+			}
 			grid[humans[i].getY()][humans[i].getX()] = 'H';
+		}
+
 	}
 }
 void sim::initGrid(){

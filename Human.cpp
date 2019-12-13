@@ -9,6 +9,7 @@ Human::Human(){
 	gender = "Female";
 	x = rand()%10;
 	y = rand()%10;
+	infected = false;
 }
 Human::Human(int _immunity){ ;
 	age = 0;
@@ -19,6 +20,16 @@ Human::Human(int _immunity){ ;
 	health = 10;
 	immunity = _immunity;
 
+}
+void Human::Attacked(int val){
+	if(immunity <= .25)
+		infected = true;
+	else
+		immunity = val - immunity;
+}
+
+bool Human::isInfected(){
+	return infected;
 }
 //Actions
 void Human::randomizeGender(){
@@ -72,7 +83,7 @@ void Human::AgeUp(){
 }
 
 bool Human::CanHaveChildren(){
-	if(age>=18 && !married)
+	if(age>=18 && !married && !infected)
 		return true;
 	else
 		return false;

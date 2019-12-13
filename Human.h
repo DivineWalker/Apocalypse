@@ -19,9 +19,9 @@ public:
 	void AgeUp();
 	void Move();
 	void setGender(string);
-
+	void Attacked();
+	bool isInfected();
 protected:
-	
 	void initialPosition();
 	void randomizeGender();
 	
@@ -34,4 +34,5 @@ private:
 	int y;
 	double health;
 	double immunity;
+	bool infected;
 };
