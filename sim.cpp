@@ -1,7 +1,6 @@
 #include <vector>
 #include "sim.h"
 #include "World.h"
-#include "Virus.h"
 
 sim::sim(){
 	ClearGrid();
@@ -115,5 +114,7 @@ void sim::ClearGrid(){
 void sim::AgeUpHumans(){
 	for(int j = 0; j < humans.size();j++){
 		humans[j].AgeUp();
-  }
+		if(humans[j].getHealth() <= 0)
+			humans.erase(humans.begin()+j);
+	}
 }
