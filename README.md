@@ -10,7 +10,7 @@ Rules:
 7. When the Human object reaches age 65, then their health(initially 10) decreases by .5 each year.
 8. When a human is spawned, the spawn will have the combined immunity of the parents.
 9. If a human comes into contact with an infected human, they will be attacked just like they would be with a virus (Refer to rules 4 and 5)
-10. if a human comes into contact with another human and they are not able to have children, then the human is moved until it finds its own space
+10. If a human comes into contact with another human and they are not able to have children, then the human is moved until it finds its own space
 
 
 Starting Condition: The simulation will start with 10 Humans, age 0 and immunity of 1(5 male and 5 female) and 1 Virus object randomly placed in the grid. Each round of the program will symbolize a year passed.
