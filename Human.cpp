@@ -1,17 +1,22 @@
-
+/*Name: Divine Walker & Moriah Young
+ *Date Completed: 12/14/2019 12:00pm
+ *Description: Human object definitions. Contains functions to move the humans by one. It contains getters to get information and two overloaded operators to is with this object
+ *Input Req: N/A. 
+ *Output: N/A
+ */
 #include <cstdlib>
 #include "Human.h"
 Human::Human(){
 	age = 0;
 	married = false;
 	health = 10;
-	immunity = 0;
+	immunity = 1;
 	gender = "Female";
 	x = rand()%10;
 	y = rand()%10;
 	infected = false;
 }
-Human::Human(int _immunity){ ;
+Human::Human(int _immunity){ //Second constructor for spanwed humans
 	age = 0;
 	married = false;
 	randomizeGender();
@@ -22,7 +27,7 @@ Human::Human(int _immunity){ ;
 
 }
 void Human::Attacked(int val){
-	if(immunity <= .25)
+	if(immunity <= .25) //if the immunity of human decides whether it becomes infected or not
 		infected = true;
 	else
 		immunity = val - immunity;
@@ -64,21 +69,8 @@ void Human::setGender(string gen){
 
 
 void Human::AgeUp(){
-	age+=10; //Age up
-	switch(age/10){ //Add immunity
-	case 0:
-		immunity+=.10;
-		break;
-	case 1:
-		immunity+=.10;
-		break;
-	case 2:
-		immunity+=.20;
-		break;
-	default:
-		immunity+=.10;
-	}
-	if(age>=65)
+	age++; //Age up
+	if(age>=65) //health starts decreasing down 
 		health-=.5;
 }
 
@@ -93,15 +85,7 @@ Human Human::operator+(Human& h1){
 	h1.married = true;
 	return Human(immunity+h1.getImmunity());
 }
-void Human::Attributes(){ //FOR TESTING PURPOSES
-	cout<<"Age: "<<age<<endl;
-	cout<<"Married: "<<married<<endl;
-	cout<<"Health: "<<health<<endl;
-	cout<<"Immunity: "<<immunity<<endl;
-	cout<<"gender: "<<gender<<endl;
-	cout<<"Position: "<<x<<", "<<y<<endl;
 
-}
 bool Human::operator==(Human& h1){ //Compatable to have another human
 	if((x == h1.getX() && y == h1.getY())
 		&&(gender != h1.getGender())
@@ -110,45 +94,53 @@ bool Human::operator==(Human& h1){ //Compatable to have another human
 	return false;
 }
 void Human::Move(){
-	int g = 0;
-	do{
-	 	cout << rand()%10<<endl;
 		switch(rand()%10){
 				case 0: //Move Right
+					if(x < 9)
 					x++;
 					break;
 				case 1: //Move Left
+					if(x > 0)
 					x--;
 					break;
 				case 2: //Move Up
+					if(y < 9)
 					y++;
 					break;
 				case 3: //Move Down
+					if(y > 0)
 					y--;
 					break;
 				case 4: //Move Right, Up
-					x++;
-					y++;
+					if(x < 9 && y < 9){
+						x++;
+						y++;
+					}
 					break;
 				case 5: //Move Right, Down
-					x++;
-					y--;
-
+					if(x < 9 && y > 0){
+						x++;
+						y--;
+					}
 					break;
 				case 6: //Move Left, Up
-					x++;
-					y--;
+					if(x > 0 && y < 9)
+					{
+						x--;
+						y++;
+					}
 					break;
 				case 7: //Move left, Down
-					x--;
-					y--;
+					if(x > 0 && y > 0){
+						x--;
+						y--;
+					}
+					break;
+				case 8:
+					if(x < 9 && y > 0){
+						x++;
+						y--;
+					}
 					break;
 		}
-		cout << rand()%10<<endl;
-		g++;
-		if(g == 5)
-			exit(0);
-	}while(!(x > 0) ||  !(x < 10)
-	 || !(y > 0) ||  !(y < 10));
-	cout << "MOVED HUMANS";
 }

@@ -1,3 +1,9 @@
+/*Name: Divine Walker & Moriah Young
+ *Date Completed: 12/14/2019 12:00pm
+ *Description: Virus object definitions. Contains getters and setters and contains a method to move the virus when it lands on something.
+ *Input Req: N/A. 
+ *Output: N/A
+ */
 #include <cstdlib>
 #include "Virus.h"
 

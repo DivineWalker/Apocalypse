@@ -1,3 +1,9 @@
+/*Name: Divine Walker & Moriah Young
+ *Date Completed: 12/14/2019 12:00pm
+ *Description: Header file for the Human object
+ *Input Req: N/A. 
+ *Output: N/A
+ */
 #include <iostream>
 
 using namespace std;
@@ -6,10 +12,8 @@ class Human{
 public:
 	Human();
 	Human(int);
-	//void Position();
 	int getX();
 	int getY();
-	void Attributes(); //FOR TESTING PURPOSES
 	int getHealth();
 	string getGender();
 	double getImmunity();
