@@ -1,5 +1,6 @@
 #include "Human.h"
 #include "World.h"
+#include "Virus.h"
 
 class sim{
 public:
@@ -11,6 +12,8 @@ public:
 		int day; 
 		char grid[10][10];
 		vector<Human> humans;
+		vector<Virus> virus;
+		vector<Human> infectedHumans;
 		void initGrid();
 		bool checkBounds(int, int);
 		void firstHumans();
@@ -19,6 +22,6 @@ public:
 		void SpawnHuman(Human, Human);
 		void ClearGrid();
 		void AgeUpHumans();
-		bool canBeInfected(Human&);
-
+		void newVirus();
+		void Check();
 };

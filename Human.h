@@ -19,7 +19,7 @@ public:
 	void AgeUp();
 	void Move();
 	void setGender(string);
-	void Attacked();
+	void Attacked(int);
 	bool isInfected();
 protected:
 	void initialPosition();

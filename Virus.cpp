@@ -30,3 +30,7 @@ void Virus::setX(int _X){
     y = _Y;
     }
 }
+void Virus::Move(){
+  x = rand()%10;
+  y = rand()%10;
+}

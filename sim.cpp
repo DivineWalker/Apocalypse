@@ -13,11 +13,16 @@ sim::sim(){
 	while(b == 'y'){
 		cout<<"Year : "<<day<<endl;
 		cout <<"Humans Alive: "<<humans.size()<<endl;
-		if(day%10 = 0)
+		if(day%10 == 0){
 			newVirus();
+		}
+		cout << "PRINT"<<endl;
 		PrintGrid();
+		cout << "CLEAR"<<endl;
 		ClearGrid();
+		cout << "Age"<<endl;
 		AgeUpHumans();
+		cout << "MOVE"<<endl;
 		MoveHumans();
 		
 
@@ -28,7 +33,7 @@ sim::sim(){
 		}
 		day++;
 		
-		cout <<"Humans Contaminated: "<<endl;
+		cout <<"Humans Contaminated: "<<infectedHumans.size()<<endl;
 		cout <<"Would you like to continue? (y/n)"<<endl;
 		cin >> b;
 	}
@@ -53,7 +58,7 @@ void sim::UpdateGrid(){
 	//ClearGrid();
 	for(int i = 0; i < humans.size();i++){
 		if(checkBounds(humans[i].getX(), humans[i].getY())){
-			if(humans[i].isInfected){
+			if(humans[i].isInfected()){
 				grid[humans[i].getY()][humans[i].getX()] = '!';
 			}
 			grid[humans[i].getY()][humans[i].getX()] = 'H';
@@ -88,16 +93,12 @@ void sim::PlaceHumans(){
 }
 void sim::MoveHumans(){
 	for(int i = 0; i < humans.size();i++){
+		cout <<"MOVING"<<endl;
 		humans[i].Move();
-		if(checkBounds(humans[i].getX(), humans[i].getY()))
-			if(canBeInfected())
-				humans[i].Attacked(rand()%2);
-			else
-				for(int j = 0; j < humans.size();j++){
-					if(j != i)
-						if(humans[i] == humans[j])
-							SpawnHuman(humans[i], humans[j]);
-		}
+		Check();
+		cout << "CHECKED"<<endl;
+		if(humans[i].isInfected())
+			infectedHumans.push_back(humans[i]);
 	}
 	UpdateGrid();
 }
@@ -105,7 +106,6 @@ void sim::SpawnHuman(Human h1, Human h2){
 	cout<<"HUMAN HAS BEEN SPAWNED"<<endl;
 	Human h3 = h1+h2;
 	humans.push_back(h3);
-	humans.back().Attributes();
 }
 void sim::ClearGrid(){
 	for(int i = 0; i < 10; i++){
@@ -123,22 +123,31 @@ void sim::AgeUpHumans(){
 		}
 	}
 }
-void sim::NewVirus(){
+void sim::newVirus(){
 	virus.push_back(Virus());
 	for(int i = 0; i < virus.size();i++){
-		while(grid[virus[i].getY()][virus[i].getX()] != 'H' || grid[virus[i].getY()][virus[i].getX()] != '!'){
-			virus[i].move();
+		while(grid[virus[i].getY()][virus[i].getX()] == 'H' || grid[virus[i].getY()][virus[i].getX()] == '!'){
+			cout <<"Randomizing"<<endl;
+			virus[i].Move();
 		}
 		grid[virus[i].getY()][virus[i].getX()] = 'V';
 	}
 }
 
-bool sim::canBeInfected(Human& h1){
-	for(int i = 0; i < virus.size();i++){
-		if(virus[i].getX() == h1.getX() && virus[i].getY() == h1.getY())
-			return true;
+void sim::Check(){
+	cout << "WE HIT A CHECK"<<endl;
+	for(int i = 0; i < humans.size();i++){
+		for(int j = 0; j < humans.size();j++){
+			if(humans[i] == humans[j])
+				SpawnHuman(humans[i], humans[j]);
+			else if(humans[i].getX() == humans[j].getX() && humans[i].getY() == humans[j].getY()){
+				humans[i].Move();
+				j = 0;;
+			}
+		}
+		for(int j = 0; j < virus.size();j++){
+			if(humans[i].getX() == virus[j].getX() && humans[i].getY() == virus[j].getY()) 
+				humans[i].Attacked(rand()%2);
+		}
 	}
-	return false;
 }
-
-//Make move function to randomize location of virus

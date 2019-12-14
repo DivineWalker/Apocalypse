@@ -110,38 +110,45 @@ bool Human::operator==(Human& h1){ //Compatable to have another human
 	return false;
 }
 void Human::Move(){
-	switch(rand()%10){
-			case 0: //Move Right
-				x++;
-				break;
-			case 1: //Move Left
-				x--;
-				break;
-			case 2: //Move Up
-				y++;
-				break;
-			case 3: //Move Down
-				y--;
-				break;
-			case 4: //Move Right, Up
-				x++;
-				y++;
-				break;
-			case 5: //Move Right, Down
-				x++;
-				y--;
+	int g = 0;
+	do{
+	 	cout << rand()%10<<endl;
+		switch(rand()%10){
+				case 0: //Move Right
+					x++;
+					break;
+				case 1: //Move Left
+					x--;
+					break;
+				case 2: //Move Up
+					y++;
+					break;
+				case 3: //Move Down
+					y--;
+					break;
+				case 4: //Move Right, Up
+					x++;
+					y++;
+					break;
+				case 5: //Move Right, Down
+					x++;
+					y--;
 
-				break;
-			case 6: //Move Left, Up
-				x++;
-				y--;
-				break;
-			case 7: //Move left, Down
-				x--;
-				y--;
-				break;
-			default:
-				break;
-
+					break;
+				case 6: //Move Left, Up
+					x++;
+					y--;
+					break;
+				case 7: //Move left, Down
+					x--;
+					y--;
+					break;
 		}
+		cout << rand()%10<<endl;
+		g++;
+		if(g == 5)
+			exit(0);
+	}while(!(x > 0) ||  !(x < 10)
+	 || !(y > 0) ||  !(y < 10));
+	cout << "MOVED HUMANS";
 }

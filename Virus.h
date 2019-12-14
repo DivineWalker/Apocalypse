@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -8,7 +9,7 @@ class Virus{
     
      Virus();
     int getX();
-    //void getVirus();
+    void Move();
     void setX(int);
     int getY();
     void setY(int);
